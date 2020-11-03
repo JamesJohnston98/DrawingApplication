@@ -1,0 +1,52 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Let's Create</title> 
+<link rel = "stylesheet" type = "text/css" href = "CSS/style.css">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+</head>
+<!--Start of html-->
+<body style = 'margin: 0; display: block;'>
+<!--Toolbar which will contain the tools which can be used to allow the user to draw on the canvas-->
+<div id = "toolbar">
+<!--Controls for line thickness-->
+<div id = "line">
+    Line Width <span id = "linecontrols">10</span>
+    <div id = "decrease" class = "linecontrol">-</div>
+    <div id = "increase" class = "linecontrol">+</div>
+    </div>
+<!--Image upload to the canvas-->
+<input id="select" type="file" onchange="uploadImage()">
+<!--Change the colour of your brush-->
+<div id = "colors">
+</div>
+<!--allows you to clear the entire canvas-->
+<input id = "clear" type = "button" value = "Clear">
+    </div>
+<canvas id = "canvas" style = "display: block;">
+Sorry Your Browser does not support Canvas
+</canvas>
+<!--End of Html-->
+    
+<script src = "js/main.js">
+</script>
+<script>
+//upload code which will allow the user to successfully upload an image to the canvas application. Will allow the user to be able to add their own messages to the images within the canvas. 
+function uploadImage() {
+  var select = document.getElementById("select");
+  var img_name = select.value;
+  var image = new SimpleImage(select);
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  image.drawTo(canvas);
+} 
+</script>
+</body>
+</html>
